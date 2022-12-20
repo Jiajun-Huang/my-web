@@ -11,7 +11,6 @@ function App() {
     <div className="AppBox">
       <Navigation></Navigation>
       <Main></Main>
-      <Aboutme></Aboutme>
       {/* <Footer></Footer> */}
     </div>
   );

@@ -14,13 +14,13 @@ export default function Aboutme() {
       .then((r) => r.text())
       .then((text) => {
         setMd(text);
-        console.log("text decoded:", text);
-        console.log(md);
       });
   });
   return (
     <div>
-      
+      <Card type="main-card">
+        <MarkDown></MarkDown>
+      </Card>
     </div>
   );
 }

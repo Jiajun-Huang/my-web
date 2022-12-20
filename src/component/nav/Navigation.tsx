@@ -17,6 +17,8 @@ import {
 //import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
+
+  
   const navArr = [
     { name: "文章", to: "/articles" },
     { name: "名言", to: "/quote" },

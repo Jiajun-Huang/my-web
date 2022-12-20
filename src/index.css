@@ -3,6 +3,8 @@
   padding: 0px;
   font-size: 20px;
   box-sizing: border-box;
+  transition: 0.2s;
+  color: white;
 }
 
 body {

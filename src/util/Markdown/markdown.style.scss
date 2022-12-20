@@ -1,7 +1,7 @@
 @import "../../static/styles/base.scss";
 @import "../../static/styles/style.scss";
 
-.marked {
+.markdown {
   word-break: break-all;
 
   h2,
@@ -14,16 +14,19 @@
     font-weight: 700;
   }
   h5 {
-    font-size: 22px;
+    font-size: 1.1rem;
   }
   h4 {
-    font-size: 24px;
+    font-size: 1.2rem;
   }
   h3 {
-    font-size: 26px;
+    font-size: 1.3rem;
   }
   h2 {
-    font-size: 28px;
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
   }
   h2:before {
     content: "✒️";
@@ -45,6 +48,13 @@
   strong {
     color: $hoverColor;
   }
+  
+  em,
+  strong,
+  p {
+    font-size: 1em;
+  }
+
   code {
     background-color: $inlineCode;
     font-family: "dengxian";
@@ -97,6 +107,9 @@
 
   hr {
     margin: 20px 0;
+  }
+  pre {
+    font-family: "FiraCode";
   }
 }
 

@@ -1,36 +1,43 @@
-import "./hljs.custom.scss";
-
-import classNames from "classnames";
-import hljs from "highlight.js";
-import { marked } from "marked";
 import React from "react";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "./markdown.style.scss";
+// Did you know you can use tildes instead of backticks for code in markdown? ✨
+const markdown = `## Here is some JavaScript code: **code**
 
-import s from "./index.scss";
+~~~js
+console.log('It works!');
+~~~
+---
 
-interface Props {
-  content?: string;
-  className?: string;
-}
+`;
 
-const MarkDown: React.FC<Props> = ({ content, className }) => {
-  hljs.configure({
-    classPrefix: "hljs-",
-    languages: ["CSS", "HTML", "JavaScript", "TypeScript", "Markdown"],
-  });
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    highlight: (code) => hljs.highlightAuto(code).value,
-    gfm: true, // 默认为true。 允许 Git Hub标准的markdown.
-    breaks: true, // 默认为false。 允许回车换行。该选项要求 gfm 为true。
-  });
-
+const MarkDown = ({ content, className }) => {
   return (
-    <div
-      className={classNames(s.marked, className)}
-      dangerouslySetInnerHTML={{
-        __html: marked(content || "").replace(/<pre>/g, "<pre id='hljs'>"),
-      }}
-    />
+    <div className="markdown">
+      <ReactMarkdown
+        children={markdown}
+        components={{
+          code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || "");
+            return !inline && match ? (
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, "")}
+                style={oneDark}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              />
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            );
+          },
+        }}
+      />
+    </div>
   );
 };
 

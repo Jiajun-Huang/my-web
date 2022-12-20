@@ -1,10 +1,11 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Aboutme from "../../page/aboutme/Aboutme";
+import "./Main.style.scss";
 
 function Main() {
   return (
-    <main>
+    <main className="main">
       <Routes>
         {/* <Route path="/" element={<Home />} />
         <Route path="articles" element={<Articles />} />
