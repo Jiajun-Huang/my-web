@@ -1,0 +1,61 @@
+@import "../../static/styles/base.scss";
+
+.nav {
+  width: 100%;
+  height: $navHeight;
+  background-color: $themeColor1;
+  box-shadow: 0 0 18px $footerBg;
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10%;
+    height: 100%;
+
+    .main-nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-item-container {
+      display: contents;
+
+      .nav-item {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.854rem;
+        width: 3rem;
+        margin-right: 1rem;
+        border-radius: $midRadius;
+
+        &:hover {
+          background-color: $hoverColor;
+        }
+      }
+      // &:last-child{
+      //   .nav-item {
+      //     margin-right: auto;
+      //   }
+      // }
+
+      //  .home {
+      //     margin-right: rem;
+      //     margin-left: auto;
+      //   }
+
+      .highlight {
+        background-color: $hoverColor;
+      }
+    }
+  }
+  .anticon {
+    svg {
+      font-size: 1.3rem;
+      //width: 1.15rem;
+    }
+  }
+}

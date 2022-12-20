@@ -2,6 +2,7 @@ import { WebView } from "react-native";
 import React, { Component, useEffect } from "react";
 //import Markdown from "react-markdown";
 import MarkDown from "../../util/Markdown/Markdown.tsx";
+import Card from "../../component/card/Card";
 import content from "./aboutme.md";
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ export default function Aboutme() {
   });
   return (
     <div>
-      <MarkDown content={md} className="marked"></MarkDown>
+      
     </div>
   );
 }

@@ -1,9 +1,14 @@
 @font-face {
   font-family: 'FiraCode';
   font-display: auto;
-  src: url(./fonts/FiraCode-Regular.ttf);
+  src: url(./static/fonts/FiraCode-Regular.ttf);
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "DengXian";
+  src: url("https://fonts.cdnfonts.com/css/dengxian");
 }
 
 .AppBox {
@@ -15,11 +20,11 @@
 }
 
 .bg0 {
-  background-image: url(./imgs/bg0.webp);
+  background-image: url(./static/imgs/bg0.webp);
 }
 .bg1 {
-  background-image: url(./imgs/bg1.webp);
+  background-image: url(./static/imgs/bg1.webp);
 }
 .bg2 {
-  background-image: url(./imgs/bg2.webp);
+  background-image: url(./static/imgs/bg2.webp);
 }
