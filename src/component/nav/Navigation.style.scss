@@ -6,6 +6,10 @@
   background-color: $themeColor1;
   box-shadow: 0 0 18px $footerBg;
 
+  ul {
+    list-style: none;
+  }
+
   .nav-container {
     display: flex;
     justify-content: space-between;

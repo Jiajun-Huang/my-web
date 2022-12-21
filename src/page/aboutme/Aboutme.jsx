@@ -1,4 +1,3 @@
-import { WebView } from "react-native";
 import React, { Component, useEffect } from "react";
 //import Markdown from "react-markdown";
 import MarkDown from "../../util/Markdown/Markdown.tsx";
@@ -14,12 +13,13 @@ export default function Aboutme() {
       .then((r) => r.text())
       .then((text) => {
         setMd(text);
+        console.log(text);
       });
   });
   return (
     <div>
       <Card type="main-card">
-        <MarkDown></MarkDown>
+        <MarkDown>{md}</MarkDown>
       </Card>
     </div>
   );

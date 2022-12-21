@@ -1,23 +1,27 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+// plugin
+import remarkGfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeRaw from "rehype-raw";
+import remarkToc from "https://cdn.skypack.dev/remark-toc@8?min";
 import "./markdown.style.scss";
 // Did you know you can use tildes instead of backticks for code in markdown? ✨
-const markdown = `## Here is some JavaScript code: **code**
 
-~~~js
-console.log('It works!');
-~~~
----
-
-`;
-
-const MarkDown = ({ content, className }) => {
+const MarkDown = ({ children }) => {
   return (
     <div className="markdown">
       <ReactMarkdown
-        children={markdown}
+        remarkPlugins={[
+          remarkMath,
+          [remarkGfm, { singleTilde: false }],
+          remarkToc,
+        ]}
+        rehypePlugins={[rehypeKatex, rehypeRaw]}
         components={{
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
@@ -36,7 +40,9 @@ const MarkDown = ({ content, className }) => {
             );
           },
         }}
-      />
+      >
+        {children}
+      </ReactMarkdown>
     </div>
   );
 };
