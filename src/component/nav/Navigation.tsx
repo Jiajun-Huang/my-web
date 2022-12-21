@@ -20,14 +20,13 @@ export default function Navigation() {
 
   
   const navArr = [
-    { name: "文章", to: "/articles" },
-    { name: "名言", to: "/quote" },
-    { name: "说说", to: "/say" },
-    { name: "留言", to: "/msg" },
-    { name: "友链", to: "/link" },
-    { name: "作品", to: "/show" },
-    { name: "建站", to: "/log" },
-    { name: "关于", to: "/about" },
+    { name: "Article", to: "/articles" },
+    { name: "Quote", to: "/quote" },
+    { name: "Talk", to: "/say" },
+    { name: "Comments", to: "/msg" },
+    { name: "Project", to: "/show" },
+    { name: "Update", to: "/log" },
+    { name: "About", to: "/about" },
   ];
 
   return (

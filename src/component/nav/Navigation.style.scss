@@ -32,7 +32,8 @@
         align-items: center;
         justify-content: center;
         height: 1.854rem;
-        width: 3rem;
+        min-width: 3rem;
+        padding: 0.1rem 0.4rem;
         margin-right: 1rem;
         border-radius: $midRadius;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Aboutme from "../../page/aboutme/Aboutme";
+import About from "../../page/about/About.jsx";
 import "./Main.style.scss";
 
 function Main() {
@@ -18,10 +18,9 @@ function Main() {
         <Route path="link" element={<Link />} />
         <Route path="show" element={<Show />} />
         <Route path="log" element={<Log />} /> */}
-        <Route path="about" element={<Aboutme />} />
-        {/* <Route path="post" element={<Post />} />
-        <Route path="artDetail" element={<ArtDetail />} />
-        <Route path="*" element={<Navigate to="/" replace />} /> */}
+        <Route path="about" element={<About />} />
+
+        {/* <Route path="*" element={NotFound}/> */}
       </Routes>
     </main>
   );

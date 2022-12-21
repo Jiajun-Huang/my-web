@@ -1,15 +1,14 @@
 import React, { Component, useEffect } from "react";
 
-//componement 
+//componement
 import MarkDown from "../../util/Markdown/Markdown.tsx";
 import Card from "../../component/card/Card";
 import Title from "../../component/title/Title.component.tsx";
 
-import content from "./aboutme.md";
+import content from "./about.md";
 import { useState } from "react";
 
-export default function Aboutme() {
-  const file_name = "./aboutme.md";
+export default function About() {
   const [md, setMd] = useState("");
   useEffect(() => {
     fetch(content)
