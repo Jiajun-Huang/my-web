@@ -316,7 +316,7 @@ In this case, we apply syntax highlighting with the seriously super amazing
 [`react-syntax-highlighter`][react-syntax-highlighter] by
 [**@conorhastings**][conor]:
 
-````jsx
+```jsx
 import React from "react";
 import ReactDom from "react-dom";
 import ReactMarkdown from "react-markdown";
@@ -325,9 +325,10 @@ import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Did you know you can use tildes instead of backticks for code in markdown? ✨
 const markdown = `Here is some JavaScript code:
+```
 
-```js
-console.log('It works!')
+```jsx
+console.log("It works!");
 
 ReactDom.render(
   <ReactMarkdown
@@ -689,4 +690,7 @@ abide by its terms.
 [react-syntax-highlighter]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
 [conor]: https://github.com/conorhastings
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-````
+
+```
+
+```
