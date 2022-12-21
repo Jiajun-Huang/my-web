@@ -8,7 +8,7 @@ import Main from "./component/main/Main.tsx";
 
 function App() {
   return (
-    <div className="AppBox">
+    <div className="AppBox bg">
       <Navigation></Navigation>
       <Main></Main>
       {/* <Footer></Footer> */}

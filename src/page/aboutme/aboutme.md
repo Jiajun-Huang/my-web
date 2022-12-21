@@ -35,33 +35,7 @@ $$
 - [x] **[compliant][syntax]**
       (100% to CommonMark, 100% to GFM with a plugin)
 
-## Contents
 
-- [react-markdown](#react-markdown)
-  - [Feature highlights](#feature-highlights)
-  - [Contents](#contents)
-  - [What is this?](#what-is-this)
-  - [When should I use this?](#when-should-i-use-this)
-  - [Install](#install)
-  - [Use](#use)
-  - [API](#api)
-    - [`props`](#props)
-    - [`uriTransformer`](#uritransformer)
-  - [Examples](#examples)
-    - [Use a plugin](#use-a-plugin)
-    - [Use a plugin with options](#use-a-plugin-with-options)
-    - [Use custom components (syntax highlight)](#use-custom-components-syntax-highlight)
-    - [Use remark and rehype plugins (math)](#use-remark-and-rehype-plugins-math)
-  - [Plugins](#plugins)
-  - [Syntax](#syntax)
-  - [Types](#types)
-  - [Compatibility](#compatibility)
-  - [Appendix A: HTML in markdown](#appendix-a-html-in-markdown)
-  - [Appendix B: Components](#appendix-b-components)
-  - [Security](#security)
-  - [Related](#related)
-  - [Contribute](#contribute)
-  - [License](#license)
 
 ## What is this?
 

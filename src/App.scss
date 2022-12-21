@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'FiraCode';
+  font-family: "FiraCode";
   font-display: auto;
   src: url(./static/fonts/FiraCode-Regular.ttf);
   font-weight: normal;
@@ -12,13 +12,15 @@
 }
 
 .AppBox {
-  font-family: 'Noto Sans SC', sans-serif;
   background-position: center 0;
   background-size: cover;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+.bg {
+  background-image: url(./static/imgs/bg.png);
+}
 .bg0 {
   background-image: url(./static/imgs/bg0.webp);
 }

@@ -1,7 +1,10 @@
 import React, { Component, useEffect } from "react";
-//import Markdown from "react-markdown";
+
+//componement 
 import MarkDown from "../../util/Markdown/Markdown.tsx";
 import Card from "../../component/card/Card";
+import Title from "../../component/title/Title.component.tsx";
+
 import content from "./aboutme.md";
 import { useState } from "react";
 
@@ -18,6 +21,7 @@ export default function Aboutme() {
   });
   return (
     <div>
+      <Title>About</Title>
       <Card type="main-card">
         <MarkDown>{md}</MarkDown>
       </Card>

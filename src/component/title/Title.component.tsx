@@ -1,9 +1,7 @@
-import React from 'react'
-
-function Title() {
-  return (
-    <div>Title</div>
-  )
+import React from "react";
+import "./Title.style.scss"
+function Title({ children }) {
+  return <h1 className="title">{children}</h1>;
 }
 
-export default Title
+export default Title;
