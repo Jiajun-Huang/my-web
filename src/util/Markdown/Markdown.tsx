@@ -8,7 +8,6 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
-import remarkToc from "https://cdn.skypack.dev/remark-toc@8?min";
 import "./markdown.style.scss";
 // Did you know you can use tildes instead of backticks for code in markdown? ✨
 
@@ -19,7 +18,6 @@ const MarkDown = ({ children }) => {
         remarkPlugins={[
           remarkMath,
           [remarkGfm, { singleTilde: false }],
-          remarkToc,
         ]}
         rehypePlugins={[rehypeKatex, rehypeRaw]}
         components={{

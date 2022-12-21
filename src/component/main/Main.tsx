@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import About from "../../page/about/About.jsx";
 import "./Main.style.scss";
 
