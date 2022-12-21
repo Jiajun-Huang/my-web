@@ -35,8 +35,6 @@ $$
 - [x] **[compliant][syntax]**
       (100% to CommonMark, 100% to GFM with a plugin)
 
-
-
 ## What is this?
 
 This package is a [React][] component that can be given a string of markdown
@@ -318,7 +316,7 @@ In this case, we apply syntax highlighting with the seriously super amazing
 [`react-syntax-highlighter`][react-syntax-highlighter] by
 [**@conorhastings**][conor]:
 
-```jsx
+````jsx
 import React from "react";
 import ReactDom from "react-dom";
 import ReactMarkdown from "react-markdown";
@@ -328,10 +326,8 @@ import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 // Did you know you can use tildes instead of backticks for code in markdown? ✨
 const markdown = `Here is some JavaScript code:
 
-~~~js
+```js
 console.log('It works!')
-~~~
-`;
 
 ReactDom.render(
   <ReactMarkdown
@@ -465,7 +461,6 @@ They work in all modern browsers (essentially: everything not IE 11).
 You can use a bundler (such as esbuild, webpack, or Rollup) to use this package
 in your project, and use its options (or plugins) to add support for legacy
 browsers.
-
 
 ## Appendix A: HTML in markdown
 
@@ -694,3 +689,4 @@ abide by its terms.
 [react-syntax-highlighter]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
 [conor]: https://github.com/conorhastings
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+````
