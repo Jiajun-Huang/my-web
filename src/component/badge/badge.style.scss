@@ -1,0 +1,15 @@
+@import "../../static/styles/base.scss";
+
+.badge {
+  padding: 0.1rem 0.2rem;
+  border-radius: $midRadius;
+  font-size: 0.8rem;
+}
+
+.badge.main {
+  background: $themeColor;
+}
+
+.badge.secondary {
+  background: $themeColor1;
+}

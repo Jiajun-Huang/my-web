@@ -10,6 +10,8 @@ import { useState } from "react";
 
 export default function About() {
   const [md, setMd] = useState("");
+
+
   useEffect(() => {
     fetch(content)
       .then((r) => r.text())
@@ -17,7 +19,9 @@ export default function About() {
         setMd(text);
         //console.log(text);
       });
-  });
+  }, []);
+
+
   return (
     <div>
       <Title>About</Title>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Home from "../../page/home/home.page.jsx";
 import About from "../../page/about/About.page.jsx";
+import DoesNotExist from "../../page/doesNotExist/DoesNotExist.page.jsx";
 import "./Main.style.scss";
 
 function Main() {
@@ -18,8 +20,9 @@ function Main() {
         <Route path="link" element={<Link />} />
         <Route path="show" element={<Show />} />
         <Route path="log" element={<Log />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-
+        <Route path="*" element={<DoesNotExist />} />
         {/* <Route path="*" element={NotFound}/> */}
       </Routes>
     </main>

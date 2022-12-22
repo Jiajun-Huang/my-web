@@ -1,9 +1,23 @@
 * {
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+    "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
   box-sizing: border-box;
   transition: 0.1s;
   color: white;
 }
 
+@font-face {
+  font-family: "FiraCode";
+  font-display: auto;
+  src: url(./static/fonts/FiraCode-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Open+Sans:wght@300&display=swap");
+}
 
 body {
   font-size: 20px;

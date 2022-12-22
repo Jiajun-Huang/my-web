@@ -1,6 +1,6 @@
 @import "../../static/styles/base.scss";
 
 .main {
-  width: $centerWidth;
+  max-width: $centerWidth;
   margin: auto;
 }
