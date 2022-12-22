@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 
 //componement
 import MarkDown from "../../util/Markdown/Markdown.tsx";
-import Card from "../../component/card/Card";
+import Card from "../../component/card/Card.component";
 import Title from "../../component/title/Title.component.tsx";
 
 import content from "./about.md";
@@ -10,7 +10,6 @@ import { useState } from "react";
 
 export default function About() {
   const [md, setMd] = useState("");
-
 
   useEffect(() => {
     fetch(content)
@@ -21,11 +20,10 @@ export default function About() {
       });
   }, []);
 
-
   return (
     <div>
       <Title>About</Title>
-      <Card type="main-card">
+      <Card color="main">
         <MarkDown>{md}</MarkDown>
       </Card>
     </div>

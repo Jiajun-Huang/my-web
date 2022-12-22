@@ -3,12 +3,6 @@
 .card {
   border-radius: $bigRadius;
   padding: 2rem;
-}
-
-.main-card {
-  background-color: $themeColor;
-}
-
-.secondary-card {
-  background-color: $themeColor1;
+  display: flex;
+  justify-content: center;
 }

@@ -1,4 +1,4 @@
-
+@import "src/static/styles/base.scss";
 
 .AppBox {
   background-position: center 0;
@@ -18,4 +18,12 @@
 }
 .bg2 {
   background-image: url(./static/imgs/bg2.webp);
+}
+
+.main-color {
+  background-color: $themeColor;
+}
+
+.secondary-color {
+  background-color: $themeColor1;
 }
