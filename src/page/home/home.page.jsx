@@ -10,14 +10,14 @@ import ArticleCard from "../../component/articleCard/articleCard.component.tsx";
 export default function Home() {
   const [articles, setArticles] = useState([]);
   console.log("asdf");
-
   // fect the dummy json as temporary
   useEffect(() => {
     fetch("https://dummyjson.com/posts")
       .then((articleData) => articleData.json())
       .then((articleJson) => {
-        setArticles(articleJson);
+        setArticles([...articleJson.posts]);
         console.log(articleJson);
+        console.log(typeof articles);
       });
   }, []);
 

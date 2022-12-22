@@ -1,3 +1,8 @@
+$min-font-size: 0.7rem;
+$max-font-size: 1.2rem;
+$min-screen: 600px;
+$max-screen: 1200px;
+
 * {
   font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
     "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
@@ -18,9 +23,11 @@
   font-family: "Noto Sans SC";
   src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Open+Sans:wght@300&display=swap");
 }
+:root {
+  font-size: 20px;
+}
 
 body {
-  font-size: 20px;
   min-height: 1vh;
   margin: 0;
   -webkit-font-smoothing: antialiased;
