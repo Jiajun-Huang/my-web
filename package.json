@@ -1,6 +1,7 @@
 {
   "name": "my-web",
   "version": "0.1.0",
+  "homepage": "https://jiajunhuang.xyz/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
