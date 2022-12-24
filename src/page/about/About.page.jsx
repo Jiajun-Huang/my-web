@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 
 //componement
 import MarkDown from "../../util/Markdown/Markdown.tsx";
-import Card from "../../component/card/Card.component";
+import Card from "../../component/card/Card.component.tsx";
 import Title from "../../component/title/Title.component.tsx";
 
 import content from "./about.md";

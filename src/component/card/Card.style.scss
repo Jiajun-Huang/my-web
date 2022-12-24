@@ -3,6 +3,15 @@
 .card {
   border-radius: $bigRadius;
   padding: 2rem;
+  flex-direction: column;
   display: flex;
   justify-content: center;
+
+  &.small {
+    padding: 1rem;
+  }
+
+  &.big {
+    padding: 2rem;
+  }
 }
