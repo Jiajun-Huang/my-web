@@ -12,4 +12,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .card-badge {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-tags > * {
+    margin-left: 1rem;
+  }
 }

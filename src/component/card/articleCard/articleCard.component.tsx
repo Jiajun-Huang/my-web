@@ -13,6 +13,7 @@ import "./articleCard.style.scss";
  * @returns
  */
 export default function ArticleCard({ article }: any) {
+  const today = new Date();
   return (
     <div className="article-card">
       <Card color={"main"} size={"small"} hover={true}>
@@ -27,7 +28,17 @@ export default function ArticleCard({ article }: any) {
           facilis quia sint nostrum numquam dolores quidem!
         </p>
         <div className="card-badge">
-          <Badge color={"secondary"} hover={true}></Badge>
+          <Badge color={"secondary"} hover={true}>
+            {today.toISOString().substring(0, 10)}
+          </Badge>
+          <div className="card-tags">
+            <Badge color={"secondary"} hover={true}>
+              Javascript
+            </Badge>
+            <Badge color={"secondary"} hover={true}>
+              Javascript
+            </Badge>
+          </div>
         </div>
       </Card>
     </div>

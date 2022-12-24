@@ -6,7 +6,7 @@ import "./badge.style.scss";
  * @param hover: should color change when hover. If empty then no hover effect
  * @returns
  */
-export default function Badge({ color, hover }) {
+export default function Badge({ children, color, hover }) {
   const className: string = `${color}-color ${hover ? "hover-badge" : ""}`;
-  return <span className={"badge " + className}>Badge</span>;
+  return <span className={"badge " + className}>{children}</span>;
 }
