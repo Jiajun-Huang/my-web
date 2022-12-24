@@ -1,5 +1,5 @@
 .article-card {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 
   .card-title {
     text-align: center;
@@ -11,9 +11,5 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  &:hover{
-     transform: scale(1.05); /* Scale by 1.1 on hover */
   }
 }

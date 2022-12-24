@@ -14,4 +14,9 @@
   &.big {
     padding: 2rem;
   }
+
+  &.hover-card:hover {
+    transform: scale(1.05); /* Scale by 1.1 on hover */
+    //cursor: pointer;
+  }
 }

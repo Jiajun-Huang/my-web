@@ -1,12 +1,14 @@
 import React from "react";
 import "./Card.style.scss";
 
-function Card({ children, size, color, ...otherProps }) {
+function Card({ children, size, color, hover, ...otherProps }) {
   console.log(size);
   return (
     <div
-      className={`card ${color ? "main-color" : color + "-color"} 
-      ${size ? size : ""}`}
+      className={`card ${hover ? "hover-card" : ""} ${
+        color ? "main-color" : color + "-color"
+      } 
+      ${size ? size : ""}}`}
       {...otherProps}
     >
       {children}

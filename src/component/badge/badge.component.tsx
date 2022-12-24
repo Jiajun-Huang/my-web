@@ -7,6 +7,6 @@ import "./badge.style.scss";
  * @returns
  */
 export default function Badge({ color, hover }) {
-  const className: string = `${color}-color ${hover ? "hover" : ""}`;
+  const className: string = `${color}-color ${hover ? "hover-badge" : ""}`;
   return <span className={"badge " + className}>Badge</span>;
 }
