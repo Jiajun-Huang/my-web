@@ -1,0 +1,42 @@
+* {
+  font-family: "dengxian", Arial, "Microsoft Yahei", "Hiragino Sans GB",
+    Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+  box-sizing: border-box;
+  transition: 0.2s;
+  color: white;
+}
+
+@font-face {
+  font-family: "FiraCode";
+  font-display: auto;
+  src: url(./static/fonts/FiraCode-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "dengxian";
+  src: url("./static/fonts/Deng.ttf");
+  font-weight: 400px;
+}
+
+@font-face {
+  font-family: "dengxian";
+  src: url("/src/static/fonts/Dengb.ttf");
+  font-weight: bold;
+}
+:root {
+  font-size: 20px;
+}
+
+body {
+  min-height: 1vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
