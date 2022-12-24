@@ -1,8 +1,13 @@
 import React from "react";
+import { Article } from "../../../types/article";
 import Badge from "../../badge/badge.component.tsx";
 import Card from "../Card.component.tsx";
 
 import "./articleCard.style.scss";
+
+interface Props {
+  article: Article;
+}
 /**
  * card
  *  title
@@ -12,32 +17,22 @@ import "./articleCard.style.scss";
  * @param {*} param0
  * @returns
  */
-export default function ArticleCard({ article }: any) {
-  const today = new Date();
+export default function ArticleCard({ article, ...otherProps }: Props) {
   return (
-    <div className="article-card">
+    <div className="article-card" {...otherProps}>
       <Card color={"main"} size={"small"} hover={true}>
-        <h3 className="card-title">Lorem ipsum dolor sit amet</h3>
-        <p className="card-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-          tenetur vero aliquid eos architecto odit placeat ea qui reprehenderit
-          obcaecati, quia porro? Eius, perspiciatis quam. Asperiores officia
-          dolore fuga dolor. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Cumque, unde odit necessitatibus culpa mollitia consectetur
-          sapiente deleniti asperiores est aperiam dolorum, velit maiores
-          facilis quia sint nostrum numquam dolores quidem!
-        </p>
+        <h3 className="card-title">{article.title}</h3>
+        <p className="card-text">{article.summary}</p>
         <div className="card-badge">
           <Badge color={"secondary"} hover={true}>
-            {today.toISOString().substring(0, 10)}
+            {article.createdAt}
           </Badge>
           <div className="card-tags">
-            <Badge color={"secondary"} hover={true}>
-              Javascript
-            </Badge>
-            <Badge color={"secondary"} hover={true}>
-              Javascript
-            </Badge>
+            {article.tags.map((tag) => (
+              <Badge color={"secondary"} hover={true}>
+                {tag}
+              </Badge>
+            ))}
           </div>
         </div>
       </Card>

@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../../page/home/home.page.jsx";
+import Home from "../../page/home/home.page.tsx";
 import About from "../../page/about/About.page.jsx";
+import Articles from "../../page/articles/articles.page.tsx";
 import DoesNotExist from "../../page/doesNotExist/DoesNotExist.page.jsx";
 import "./Main.style.scss";
+import SingleArticle from "../../page/articles/article/singleArticle.page.tsx";
 
 function Main() {
   return (
@@ -22,6 +24,8 @@ function Main() {
         <Route path="log" element={<Log />} /> */}
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="articles" element={<Articles />}></Route>
+        <Route path="articles/:title" element={<SingleArticle />}></Route>
         <Route path="*" element={<DoesNotExist />} />
         {/* <Route path="*" element={NotFound}/> */}
       </Routes>

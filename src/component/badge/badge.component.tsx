@@ -1,5 +1,11 @@
 import React from "react";
 import "./badge.style.scss";
+
+interface Props {
+  children: String;
+  color: String;
+  hover: Boolean;
+}
 /**
  *
  * @param color: main OR secondary

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ArticleCard from "../../component/card/articleCard/articleCard.component.tsx";
 import Title from "../../component/title/Title.component.tsx";
 
+import articleData from "../../data/data.json";
+
+import { Article } from "../../types/article";
+
 import "./home.style.scss";
+
 /**
  *  render article list in main page
  *  also the side bar
@@ -10,18 +16,19 @@ import "./home.style.scss";
  * @returns
  */
 export default function Home() {
-  const [articles, setArticles] = useState([]);
-  console.log("asdf");
-  // fect the dummy json as temporary
+  const [articles, setArticles] = useState<Article[]>([]);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://dummyjson.com/posts")
-      .then((articleData) => articleData.json())
-      .then((articleJson) => {
-        setArticles([...articleJson.posts]);
-        console.log(articleJson);
-        console.log(typeof articles);
-      });
+    const articleList: Article[] = articleData;
+    console.log(articleList);
+    setArticles(articleList);
   }, []);
+
+  const toArticle = (title) => {
+    console.log(title);
+
+    navigate("/articles/" + encodeURI(title));
+  };
 
   return (
     <div className="home">
@@ -30,7 +37,11 @@ export default function Home() {
       </header>
       <section>
         {articles.map((article, id) => (
-          <ArticleCard article={article} key={id}/>
+          <ArticleCard
+            article={article}
+            key={id}
+            onClick={toArticle.bind(null, article.title)}
+          />
         ))}
       </section>
       <aside></aside>

@@ -16,9 +16,9 @@
   .card-badge {
     display: flex;
     justify-content: space-between;
-  }
 
-  .card-tags > * {
-    margin-left: 1rem;
+    .card-tags > .badge {
+      margin-left: 1rem;
+    }
   }
 }
