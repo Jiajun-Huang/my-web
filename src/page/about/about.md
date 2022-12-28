@@ -1,6 +1,10 @@
+---
+title: About
+---
+
 ## 你好！ Hi I am Jiajun <img src="https://github.com/Light-City/Light-City/blob/main/wave.gif?raw=true" width="30px">
 
-- A computer engineering student at *UBC*
+- A computer engineering student at _UBC_
 
 This is my own personal blog, thank you for finding this place in the vast Internet~
 

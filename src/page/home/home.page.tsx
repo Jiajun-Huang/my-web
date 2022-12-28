@@ -6,6 +6,7 @@ import Title from "../../component/title/Title.component.tsx";
 import articleData from "../../data/data.json";
 
 import { Article } from "../../types/article";
+import { queryArticlesProfile } from "../../util/firebase.uitil.ts";
 
 import "./home.style.scss";
 
@@ -20,14 +21,16 @@ export default function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     const articleList: Article[] = articleData;
-    console.log(articleList);
+    //console.log(articleList);
+    //console.log(queryArticlesProfile());
+    console.log(Date.now());
     setArticles(articleList);
   }, []);
 
   const toArticle = (title) => {
     console.log(title);
 
-    navigate("/articles/" + encodeURI(title));
+    navigate("/articles/" + encodeURIComponent(title).split("%20").join("-"));
   };
 
   return (
