@@ -22,10 +22,10 @@ export default function ArticleCard({ article, ...otherProps }: Props) {
     <div className="article-card" {...otherProps}>
       <Card color={"main"} size={"small"} hover={true}>
         <h3 className="card-title">{article.title}</h3>
-        <p className="card-text">{article.summary}</p>
+        <p className="card-text">{article.intro}</p>
         <div className="card-badge">
           <Badge color={"secondary"} hover={true}>
-            {article.createdAt}
+            {article.createAt.toISOString().slice(0, 10)}
           </Badge>
           <div className="card-tags">
             {article.tags.map((tag) => (

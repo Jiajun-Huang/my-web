@@ -19,12 +19,14 @@ import "./home.style.scss";
 export default function Home() {
   const [articles, setArticles] = useState<Article[]>([]);
   const navigate = useNavigate();
+
   useEffect(() => {
-    const articleList: Article[] = articleData;
-    //console.log(articleList);
-    //console.log(queryArticlesProfile());
-    console.log(Date.now());
-    setArticles(articleList);
+    async function fetchData() {
+      const articles = await queryArticlesProfile();
+      setArticles(articles);
+    }
+
+    fetchData();
   }, []);
 
   const toArticle = (title) => {

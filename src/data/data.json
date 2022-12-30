@@ -2,7 +2,7 @@
   {
     "title": "10 Tips for a Successful Garden",
     "createdAt": "2022-04-01",
-    "lastUpdateAt": "2022-04-05",
+    "lastUpdate": "2022-04-05",
     "category": "gardening",
     "tags": ["gardening", "plants", "soil"],
     "summary": "In this article, we'll explore 10 tips for creating a beautiful and productive garden. From choosing the right plants to maintaining your soil, these tips will help you get the most out of your gardening efforts.",
@@ -12,7 +12,7 @@
   {
     "title": "5 Ways to Get the Most Out of Your Morning Routine",
     "createdAt": "2022-06-15",
-    "lastUpdateAt": "2022-06-20",
+    "lastUpdate": "2022-06-20",
     "category": "self-improvement",
     "tags": ["morning routine", "productivity", "self-care"],
     "summary": "In this article, we'll explore five simple strategies for making the most of your morning routine. From setting goals to prioritizing self-care, these tips will help you start your day off on the right foot.",
@@ -22,7 +22,7 @@
   {
     "title": "The Benefits of Meditation for Stress Management",
     "createdAt": "2022-08-02",
-    "lastUpdateAt": "2022-08-05",
+    "lastUpdate": "2022-08-05",
     "category": "wellness",
     "tags": ["meditation", "stress management", "well-being"],
     "summary": "Meditation has been shown to have numerous benefits for stress management. In this article, we'll explore the science behind meditation and how it can help you reduce stress and improve your overall well-being.",
@@ -32,7 +32,7 @@
   {
     "title": "The History of Chocolate: From Ancient Civilizations to Modern Day",
     "createdAt": "2022-09-19",
-    "lastUpdateAt": "2022-09-22",
+    "lastUpdate": "2022-09-22",
     "category": "food",
     "tags": ["chocolate", "history", "food"],
     "summary": "Chocolate has a long and fascinating history that spans thousands of years. In this article, we'll explore the origins of chocolate and how it has evolved over time to become the beloved treat that it is today.",
@@ -42,7 +42,7 @@
   {
     "title": "The Benefits of a Plant-Based Diet",
     "createdAt": "2022-10-14",
-    "lastUpdateAt": "2022-10-17",
+    "lastUpdate": "2022-10-17",
     "category": "health",
     "tags": ["plant-based", "diet", "health"],
     "summary": "A plant-based diet has been shown to have numerous health benefits, including improved heart health and weight management. In this article, we'll explore the science behind a plant-based diet and how it can help you live a healthier life.",
@@ -52,7 +52,7 @@
   {
     "title": "早上好中国现在我有冰淇淋",
     "createdAt": "2022-10-14",
-    "lastUpdateAt": "2022-10-17",
+    "lastUpdate": "2022-10-17",
     "category": "health",
     "tags": ["plant-based", "diet", "health"],
     "summary": "A plant-based diet has been shown to have numerous health benefits, including improved heart health and weight management. In this article, we'll explore the science behind a plant-based diet and how it can help you live a healthier life.",
