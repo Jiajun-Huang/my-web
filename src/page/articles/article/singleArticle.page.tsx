@@ -10,36 +10,34 @@ import Title from "../../../component/title/Title.component.tsx";
 import Card from "../../../component/card/Card.component.tsx";
 import MarkDown from "../../../util/Markdown/Markdown.tsx";
 
-interface ContentData {
-  url: string;
-  content: string;
-}
+import { useQuery } from "react-query";
+
+const fetchData = (title: string) => {
+  const url: string = getMdFileUrl(title);
+  return getMdFileText(url);
+};
 
 export default function SingleArticle() {
   const { title } = useParams();
-  const [data, setData] = useState<ContentData>({ url: "", content: "" });
 
-  useEffect(() => {
-    const fetchData = async (title: string) => {
-      const url: string = await getMdFileUrl(title);
-      const content: string = await getMdFileText(url);
-      setData({ url, content });
-    };
-
-    if (title !== undefined) fetchData(decodeURI(title).replace("-", " "));
-  }, [title]);
-
-  if (data.url === "" || data.content === "") {
-    return <div>Loading</div>;
-  }
+  const { isLoading, isError, data, error } = useQuery(
+    "article/" + title,
+    fetchData.bind(null, title)
+  );
 
   return (
     <article>
       <Title>{title}</Title>
       <Card color="main">
-        <MarkDown imageUrl={getImageUrl.bind(null, title)}>
-          {data.content}
-        </MarkDown>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : isError ? (
+          <div>An error occurred: {error.message}</div>
+        ) : (
+          <MarkDown transformImageUrl={getImageUrl.bind(null, title)}>
+            {data}
+          </MarkDown>
+        )}
       </Card>
     </article>
   );

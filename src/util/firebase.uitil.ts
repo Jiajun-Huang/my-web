@@ -56,23 +56,23 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
 
 //firestore storage
 
-export async function getMdFileUrl(title: string) {
+export function getMdFileUrl(title: string) {
   const hashedTitle = getUuid(title);
-  const fileRef = ref(
-    st,
+
+  const url = `https://firebasestorage.googleapis.com/v0/b/${
+    FIREBASE_API.storageBucket
+  }/o/${encodeURIComponent(
     "articles/" + hashedTitle + "/" + hashedTitle + ".md"
-  );
-  const url = await getDownloadURL(fileRef);
-  //console.log(url);
+  )}?alt=media`;
+  console.log(url);
   return url;
 }
 
-export async function getImageUrl(articleTitle: string, src: string) {
+export function getImageUrl(articleTitle: string, src: string) {
   const hashedTitle = getUuid(articleTitle);
-  const fileRef = ref(st, "articles/" + hashedTitle + "/" + src);
-  //console.log("articles/" + hashedTitle + "/" + src);
-  const url = await getDownloadURL(fileRef);
-  //console.log(url);
+  const url = `https://firebasestorage.googleapis.com/v0/b/${
+    FIREBASE_API.storageBucket
+  }/o/${encodeURIComponent("articles/" + hashedTitle + "/" + src)}?alt=media`;
   return url;
 }
 

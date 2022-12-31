@@ -13,18 +13,18 @@ import "./markdown.style.scss";
 
 interface Props {
   children: string;
-  imageUrl: (url: string) => Promise<string>;
+  transformImageUrl: (url: string) => string;
 }
 
-const MarkDown = ({ children, imageUrl }: Props) => {
+const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
   console.log(typeof children); // here shows object
   return (
     <div className="markdown">
       <ReactMarkdown
         remarkPlugins={[remarkMath, [remarkGfm, { singleTilde: false }]]}
         rehypePlugins={[rehypeKatex, rehypeRaw]}
-        transformImageUri={async (src) => {
-          const url = await imageUrl(src);
+        transformImageUri={(src) => {
+          const url = transformImageUrl(src);
           console.log(url);
           return url;
         }}
@@ -47,7 +47,7 @@ const MarkDown = ({ children, imageUrl }: Props) => {
           },
         }}
       >
-        {children.toString()}
+        {children}
       </ReactMarkdown>
     </div>
   );
