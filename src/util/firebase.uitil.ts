@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import { Article } from "../types/article";
 const getUuid = require("uuid-by-string");
+
 // Initialize Firebase
 const app = initializeApp(FIREBASE_API);
 
@@ -43,7 +44,6 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
   const snapshot = await getDocs(q);
   const articles: Article[] = snapshot.docs.map((doc) => {
     const data: FArticle = doc.data() as FArticle;
-    console.log(data);
     return {
       ...data,
       createAt: data.createAt.toDate(),
@@ -56,38 +56,30 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
 
 //firestore storage
 
-export function getMdFileUrl(title: string) {
-  const hashedTitle = getUuid(title);
-
-  const url = `https://firebasestorage.googleapis.com/v0/b/${
-    FIREBASE_API.storageBucket
-  }/o/${encodeURIComponent(
-    "articles/" + hashedTitle + "/" + hashedTitle + ".md"
-  )}?alt=media`;
-  console.log(url);
-  return url;
-}
-
-export function getImageUrl(articleTitle: string, src: string) {
-  const hashedTitle = getUuid(articleTitle);
+export function getImageUrl(title: string, src: string) {
+  const hashedTitle = getUuid(title.replace("-", " "));
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
   }/o/${encodeURIComponent("articles/" + hashedTitle + "/" + src)}?alt=media`;
   return url;
 }
 
-export const getMdFileText = async (url: string): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = () => {
-      if (xhr.status === 200) {
-        resolve(xhr.responseText);
-      } else {
-        reject(xhr.statusText);
-      }
-    };
-    xhr.onerror = () => reject(xhr.statusText);
-    xhr.send();
-  });
+export const getMdFileText = async (title: string): Promise<string> => {
+  const hashedTitle = getUuid(title.replace("-", " "));
+  const url = `https://firebasestorage.googleapis.com/v0/b/${
+    FIREBASE_API.storageBucket
+  }/o/${encodeURIComponent(
+    "articles/" + hashedTitle + "/" + hashedTitle + ".md"
+  )}?alt=media`;
+  console.log(url);
+  const response = await fetch(url);
+  if (response.status === 200) {
+    return response.text();
+  } else if (response.status === 404) {
+    const error = new Error("404");
+    console.log(error);
+    throw error;
+  } else {
+    throw new Error("error");
+  }
 };

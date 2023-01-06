@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import ArticleCard from "../../component/card/articleCard/articleCard.component.tsx";
-import Title from "../../component/title/Title.component.tsx";
-
-import articleData from "../../data/data.json";
+import ArticleCard from "../../component/card/articleCard/articleCard.component";
+import Title from "../../component/title/Title.component";
 
 import { Article } from "../../types/article";
-import { queryArticlesProfile } from "../../util/firebase.uitil.ts";
-
+import { queryArticlesProfile } from "../../util/firebase.uitil";
+import { useQuery } from "react-query";
 import "./home.style.scss";
-
+const getUuid = require("uuid-by-string");
 /**
  *  render article list in main page
  *  also the side bar
@@ -17,21 +15,14 @@ import "./home.style.scss";
  * @returns
  */
 export default function Home() {
-  const [articles, setArticles] = useState<Article[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchData() {
-      const articles = await queryArticlesProfile();
-      setArticles(articles);
-    }
+  const { isLoading, isError, data, error } = useQuery<Article[]>(
+    "home",
+    queryArticlesProfile
+  );
 
-    fetchData();
-  }, []);
-
-  const toArticle = (title) => {
-    console.log(title);
-
+  const toArticle = (title: string) => {
     navigate("/articles/" + encodeURIComponent(title).split("%20").join("-"));
   };
 
@@ -41,13 +32,16 @@ export default function Home() {
         <Title> Jiajun's WebSite </Title>
       </header>
       <section>
-        {articles.map((article, id) => (
-          <ArticleCard
-            article={article}
-            key={id}
-            onClick={toArticle.bind(null, article.title)}
-          />
-        ))}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : (
+          data?.map((article) => (
+            <ArticleCard
+              article={article}
+              onClick={toArticle.bind(null, article.title)}
+            />
+          ))
+        )}
       </section>
       <aside></aside>
     </div>

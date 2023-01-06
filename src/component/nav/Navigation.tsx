@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import classNames from "classnames";
+import { NavLink } from "react-router-dom";
+
 import "./Navigation.style.scss";
 //icon
 import {
@@ -17,8 +16,6 @@ import {
 //import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
-
-  
   const navArr = [
     { name: "Article", to: "/articles" },
     { name: "Quote", to: "/quote" },
@@ -64,4 +61,3 @@ export default function Navigation() {
   );
 }
 
-const styles = StyleSheet.create({});

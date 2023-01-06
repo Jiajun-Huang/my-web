@@ -12,7 +12,7 @@ interface Props {
  * @param hover: should color change when hover. If empty then no hover effect
  * @returns
  */
-export default function Badge({ children, color, hover }) {
+export default function Badge({ children, color, hover }: Props) {
   const className: string = `${color}-color ${hover ? "hover-badge" : ""}`;
   return <span className={"badge " + className}>{children}</span>;
 }

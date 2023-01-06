@@ -3,7 +3,7 @@
 
 .markdown {
   //word-break: break-all;
-  
+
   h2,
   h3,
   h4,
@@ -45,7 +45,6 @@
     color: $hoverColor;
   }
 
-  em,
   p,
   a,
   ul {
@@ -54,7 +53,7 @@
     color: inherit;
   }
 
-  ul{
+  ul {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
@@ -62,10 +61,14 @@
   code {
     background-color: $inlineCode;
     padding: 0.1rem 0.25rem 0.11rem 0.25rem;
-    font-family: "FiraCode", "dengxian" !important;
+    font-family: "FiraCode" !important;
+    font-size: 0.9rem !important;
+    font-weight: normal !important;
     border-radius: 8px;
     margin: 0 2px;
-    color: inherit;
+    span {
+      font-family: "FiraCode";
+    }
   }
 
   p {

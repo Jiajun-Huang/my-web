@@ -1,12 +1,13 @@
 import React from "react";
 import { Article } from "../../../types/article";
-import Badge from "../../badge/badge.component.tsx";
-import Card from "../Card.component.tsx";
+import Badge from "../../badge/badge.component";
+import Card from "../Card.component";
 
 import "./articleCard.style.scss";
 
 interface Props {
   article: Article;
+  [x: string]: any;
 }
 /**
  * card

@@ -1,41 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import {
-  getMdFileUrl,
-  getMdFileText,
-  getImageUrl,
-} from "../../../util/firebase.uitil.ts";
+import { getMdFileText, getImageUrl } from "../../../util/firebase.uitil";
 
-import Title from "../../../component/title/Title.component.tsx";
-import Card from "../../../component/card/Card.component.tsx";
-import MarkDown from "../../../util/Markdown/Markdown.tsx";
+import Title from "../../../component/title/Title.component";
+import Card from "../../../component/card/Card.component";
+import MarkDown from "../../../util/Markdown/Markdown";
+import DoesNotExist from "../../doesNotExist/DoesNotExist.page";
 
 import { useQuery } from "react-query";
 
-const fetchData = (title: string) => {
-  const url: string = getMdFileUrl(title);
-  return getMdFileText(url);
-};
-
 export default function SingleArticle() {
   const { title } = useParams();
-
-  const { isLoading, isError, data, error } = useQuery(
+  const { isLoading, isError, data, error } = useQuery<string, Error>(
     "article/" + title,
-    fetchData.bind(null, title)
+    getMdFileText.bind(null, title as string)
   );
+
+  console.log(error as Error);
+
+  if (isError && error.message === "404") {
+    //return <p>Does not exist</p>
+    return <DoesNotExist />;
+  }
 
   return (
     <article>
-      <Title>{title}</Title>
+      <Title>
+        {isLoading ? "Loading" : isError ? "Error!" : (title as string)}
+      </Title>
       <Card color="main">
         {isLoading ? (
           <div>Loading...</div>
         ) : isError ? (
           <div>An error occurred: {error.message}</div>
         ) : (
-          <MarkDown transformImageUrl={getImageUrl.bind(null, title)}>
-            {data}
+          <MarkDown transformImageUrl={getImageUrl.bind(null, title as string)}>
+            {data as string}
           </MarkDown>
         )}
       </Card>

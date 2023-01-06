@@ -1,6 +1,11 @@
 import React from "react";
 import "./Title.style.scss";
-function Title({ children, ...otherProps }) {
+
+interface Props {
+  children: string;
+}
+
+function Title({ children, ...otherProps }: Props) {
   return (
     <h1 className="title" {...otherProps}>
       {children}

@@ -6,7 +6,7 @@ This is my own personal blog, thank you for finding this place in the vast Inter
 
 ## About the website
 
-This website is build with **React**.
+This website is build with **React** and **Firebase**.
 
 This website is mainly used for posting my note and my experience
 
@@ -18,10 +18,12 @@ The TODO list for this website
 
 - [x] Markdown renderer
 - [x] Add content to About
-- [ ] Add footer
-- [ ] Finish home page
-- [ ] Add first article
+- [x] Finish home page
+- [x] Add first test article
+- [x] Add backend
+- [ ] improve caching
+- [ ] add first read article
 - [ ] Finish Update page
+- [ ] Add footer
 - [ ] Finish Comments page
 - [ ] Finish Quote page
-- [ ] Add backend

@@ -9,7 +9,25 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import "./markdown.style.scss";
-// Did you know you can use tildes instead of backticks for code in markdown? ✨
+
+const MyImage = (props) => {
+  const [fullSize, setFullSize] = useState();
+  const handleClick = () => {
+    setFullSize(!fullSize);
+  };
+  return (
+    <img
+      className={fullSize ? "large" : "small"}
+      alt={props.alt}
+      src={props.src}
+      onClick={handleClick}
+    />
+  );
+};
+
+const renderers = {
+  image: MyImage,
+};
 
 interface Props {
   children: string;
@@ -17,16 +35,13 @@ interface Props {
 }
 
 const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
-  console.log(typeof children); // here shows object
   return (
     <div className="markdown">
       <ReactMarkdown
         remarkPlugins={[remarkMath, [remarkGfm, { singleTilde: false }]]}
         rehypePlugins={[rehypeKatex, rehypeRaw]}
         transformImageUri={(src) => {
-          const url = transformImageUrl(src);
-          console.log(url);
-          return url;
+          return transformImageUrl(src);
         }}
         components={{
           code({ node, inline, className, children, ...props }) {
@@ -34,7 +49,7 @@ const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
             return !inline && match ? (
               <SyntaxHighlighter
                 children={String(children).replace(/\n$/, "")}
-                style={oneDark}
+                style={oneDark!}
                 language={match[1]}
                 PreTag="div"
                 {...props}
@@ -54,3 +69,6 @@ const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
 };
 
 export default MarkDown;
+//https://github.com/kevinzunigacuellar/remark-code-title
+//https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-iframes#readme
+//https://github.com/remarkjs/react-markdown/issues/622
