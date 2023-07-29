@@ -18,8 +18,6 @@ import {
 export default function Navigation() {
   const navArr = [
     { name: "Article", to: "/articles" },
-    { name: "Quote", to: "/quote" },
-    { name: "Talk", to: "/say" },
     { name: "Comments", to: "/msg" },
     { name: "Project", to: "/show" },
     { name: "Update", to: "/log" },

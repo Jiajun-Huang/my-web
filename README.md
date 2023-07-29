@@ -1,6 +1,6 @@
 # This is my personal website
 
-[jiajunhuang.xyz]
+[jiajunhuang.xyz](https://jiajunhuang.xyz)
 
 ## The website is under construction
 
@@ -11,11 +11,10 @@
 - [x] Finish home page
 - [x] Add first test article
 - [x] Add backend
-- [ ] improve caching
-- [ ] add first read article
-- [ ] Finish Update page
-- [ ] Add footer
+- [x] improve caching
+- [x] add first read article
+- [x] Finish Update page
 - [ ] Finish Comments page
-- [ ] Finish Quote page
+- [ ] Finish admin management page
 
 The website I will take reference of [https://github.com/lzxjack/react-blog]

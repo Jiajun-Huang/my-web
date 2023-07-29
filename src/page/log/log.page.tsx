@@ -21,11 +21,20 @@ const Log = () => {
         "The font end part is most finished ",
       ],
     },
+    {
+      date: 1690377679031,
+      logContent: [
+        "我现在打算从新开始开发这个网站",
+        "I am planning to restart the development of this website",
+      ],
+    },
   ];
+
+  data.sort((a, b) => b.date - a.date);
   return (
     <>
       <Title>Update history</Title>
-      <Card size="big" color={"main"}>
+      <Card size='big' color={"main"}>
         {data.map((d, i) => (
           <TimeItem date={d.date} logContent={d.logContent} key={i} />
         ))}

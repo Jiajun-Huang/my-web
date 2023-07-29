@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 
 //componement
 import MarkDown from "../../util/Markdown/Markdown.tsx";

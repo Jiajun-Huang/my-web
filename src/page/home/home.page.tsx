@@ -7,7 +7,7 @@ import { Article } from "../../types/article";
 import { queryArticlesProfile } from "../../util/firebase.uitil";
 import { useQuery } from "react-query";
 import "./home.style.scss";
-const getUuid = require("uuid-by-string");
+
 /**
  *  render article list in main page
  *  also the side bar
@@ -27,13 +27,15 @@ export default function Home() {
   };
 
   return (
-    <div className="home">
+    <div className='home'>
       <header>
         <Title> Jiajun's WebSite </Title>
       </header>
       <section>
         {isLoading ? (
           <p>Loading</p>
+        ) : isError ? (
+          <p>Error</p>
         ) : (
           data?.map((article) => (
             <ArticleCard
