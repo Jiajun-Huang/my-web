@@ -66,8 +66,6 @@ export function getImageUrl(title: string, src: string) {
 
 export const getMdFileText = async (title: string): Promise<string> => {
   const hashedTitle = title;
-  console.log(title);
-  console.log(hashedTitle);
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
   }/o/${encodeURIComponent(

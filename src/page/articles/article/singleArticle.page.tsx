@@ -6,7 +6,7 @@ import Title from "../../../component/title/Title.component";
 import Card from "../../../component/card/Card.component";
 import MarkDown from "../../../util/Markdown/Markdown";
 import DoesNotExist from "../../doesNotExist/DoesNotExist.page";
-
+import "./singleArticle.style.scss";
 import { useQuery } from "react-query";
 
 export default function SingleArticle() {
@@ -22,7 +22,7 @@ export default function SingleArticle() {
   }
 
   return (
-    <article>
+    <article className='single-article'>
       <Title>
         {isLoading ? "Loading" : isError ? "Error!" : (title as string)}
       </Title>
