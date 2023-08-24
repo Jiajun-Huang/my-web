@@ -57,7 +57,7 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
 //firestore storage
 
 export function getImageUrl(title: string, src: string) {
-  const hashedTitle = getUuid(title.replace("-", " "));
+  const hashedTitle = title.replaceAll("-", " ");
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
   }/o/${encodeURIComponent("articles/" + hashedTitle + "/" + src)}?alt=media`;
@@ -65,13 +65,15 @@ export function getImageUrl(title: string, src: string) {
 }
 
 export const getMdFileText = async (title: string): Promise<string> => {
-  const hashedTitle = getUuid(title.replace("-", " "));
+  const hashedTitle = title;
+  console.log(title);
+  console.log(hashedTitle);
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
   }/o/${encodeURIComponent(
     "articles/" + hashedTitle + "/" + hashedTitle + ".md"
   )}?alt=media`;
-  console.log(url);
+
   const response = await fetch(url);
   if (response.status === 200) {
     return response.text();

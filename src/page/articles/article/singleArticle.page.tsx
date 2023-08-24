@@ -10,13 +10,11 @@ import DoesNotExist from "../../doesNotExist/DoesNotExist.page";
 import { useQuery } from "react-query";
 
 export default function SingleArticle() {
-  const { title } = useParams();
+  const { title } = useParams<string>();
   const { isLoading, isError, data, error } = useQuery<string, Error>(
     "article/" + title,
     getMdFileText.bind(null, title as string)
   );
-
-  console.log(error as Error);
 
   if (isError && error.message === "404") {
     //return <p>Does not exist</p>
@@ -28,7 +26,7 @@ export default function SingleArticle() {
       <Title>
         {isLoading ? "Loading" : isError ? "Error!" : (title as string)}
       </Title>
-      <Card color="main">
+      <Card color='main'>
         {isLoading ? (
           <div>Loading...</div>
         ) : isError ? (
