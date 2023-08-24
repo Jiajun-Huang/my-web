@@ -1,4 +1,3 @@
-import React, { ReactNode } from "react";
 import "./Card.style.scss";
 
 interface Props {

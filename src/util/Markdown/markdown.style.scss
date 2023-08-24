@@ -51,6 +51,7 @@
     font-size: 1rem;
     line-height: 1.7rem !important;
     color: inherit;
+    margin: 0;
   }
 
   ul {
@@ -71,11 +72,11 @@
     }
   }
 
-  p {
-    display: block;
-    max-width: 100%;
-    border-radius: 12px;
-  }
+  // p {
+  //   display: block;
+  //   max-width: 100%;
+  //   border-radius: 12px;
+  // }
 
   blockquote {
     background-color: $themeColor1;

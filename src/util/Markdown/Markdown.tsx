@@ -13,7 +13,7 @@ import "./markdown.style.scss";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 interface Props {
   children: string;
-  transformImageUrl: (url: string) => string;
+  transformImageUrl?: (url: string) => string;
 }
 
 const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
