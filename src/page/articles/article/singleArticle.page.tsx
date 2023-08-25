@@ -23,9 +23,23 @@ export default function SingleArticle() {
 
   return (
     <article className='single-article'>
-      <Title>
-        {isLoading ? "Loading" : isError ? "Error!" : (title as string)}
-      </Title>
+      <div className='title-container'>
+        <Title>
+          {isLoading ? "Loading" : isError ? "Error!" : (title as string)}
+        </Title>
+
+        {/* display meta data, retrive from firebase data */}
+        <div className='article-metadata'>
+          <div className='metadata-first'></div> 
+          <div className='metadata-second'></div>
+          <div className='metadata-third'></div>
+        </div>
+      </div>
+
+      {/*  */}
+
+
+      {/* main body display */}
       <Card color='main'>
         {isLoading ? (
           <div>Loading...</div>

@@ -8,6 +8,8 @@ import {
   orderBy,
   collection,
   limit,
+  doc,
+  getDoc,
   getDocs,
   Timestamp,
 } from "firebase/firestore";
@@ -24,6 +26,7 @@ const analytics = getAnalytics(app);
 
 interface FArticle {
   title: string;
+  url: string;
   category: string;
   createAt: Timestamp;
   lastUpdate: Timestamp;
@@ -43,7 +46,7 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
   const q = query(articlesRef, orderBy("createAt", "desc"), limit(8));
   const snapshot = await getDocs(q);
   const articles: Article[] = snapshot.docs.map((doc) => {
-    const data: FArticle = doc.data() as FArticle;
+    const data: FArticle = doc.data() as FArticle; // covert timestamp to date object
     return {
       ...data,
       createAt: data.createAt.toDate(),
@@ -81,5 +84,15 @@ export const getMdFileText = async (title: string): Promise<string> => {
     throw error;
   } else {
     throw new Error("error");
+  }
+};
+
+export const getArticleDoc = async (key: string): Promise<Article> => {
+  const documentRef = doc(db, "articles", key); 
+  const documentSnapshot = await getDoc(documentRef);
+  if (documentSnapshot.exists()) {
+    return documentSnapshot.data() as Article;
+  } else {
+    throw new Error("404");
   }
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-
+import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 // plugin
@@ -21,7 +20,7 @@ const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
     <div className='markdown'>
       <ReactMarkdown
         remarkPlugins={[remarkMath, [remarkGfm, { singleTilde: false }]]}
-        rehypePlugins={[rehypeKatex, rehypeRaw]}
+        rehypePlugins={[rehypeKatex, rehypeRaw, rehypeSlug]}
         transformImageUri={(src) => {
           return transformImageUrl(src);
         }}

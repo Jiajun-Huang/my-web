@@ -10,4 +10,8 @@
   &.hover-badge:hover {
     background-color: $hoverColor;
   }
+
+  &.main-color {
+    background-color: $themeColor1;
+  }
 }
