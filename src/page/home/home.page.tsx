@@ -30,7 +30,7 @@ export default function Home() {
       <header>
         <Title> Jiajun's WebSite </Title>
       </header>
-      <section>
+      <section className="article-card-list">
         {/* if loading create  */}
         {isLoading
           ? it.map((_, i) => (
@@ -41,10 +41,9 @@ export default function Home() {
               </div>
             ))
           : data?.map((article, i) => (
-              <div className='article-item'>
+              <div className='article-item' key={i}>
                 <ArticleCard
                   article={article}
-                  key={i}
                   onClick={toArticle.bind(null, article.url)}
                 />
               </div>

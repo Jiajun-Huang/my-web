@@ -1,8 +1,8 @@
 * {
-  font-family: "dengxian", Arial, "Microsoft Yahei", "Hiragino Sans GB",
-    Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+  font-family: "Segoe UI", "dengxian", Arial, "Microsoft Yahei",
+    "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial,
+    sans-serif;
   box-sizing: border-box;
-  transition: 0.2s;
   color: white;
 }
 
@@ -39,4 +39,17 @@ body {
 a {
   color: white;
   text-decoration: none;
+}
+
+span,
+time,
+div,
+svg {
+  color: inherit;
+}
+
+@media (max-width: 769px) {
+  :root {
+    font-size: 16px;
+  }
 }

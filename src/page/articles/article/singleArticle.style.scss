@@ -1,3 +1,5 @@
+@import "../../../static/styles/base.scss";
+
 .single-article {
   .Title {
     height: auto;
@@ -5,6 +7,28 @@
   }
 
   .title-container {
-    height: 40vh;
+    margin: 20vh 0 10vh 0;
+  }
+
+  .article-metadata {
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    color: $textColor2;
+
+    svg {
+      fill: $textColor2;
+    }
+
+    .metadata-list > *::after {
+      content: "|";
+      margin: 0 0.5rem;
+    }
+
+    .metadata-list :last-child::after {
+      content: "";
+    }
   }
 }

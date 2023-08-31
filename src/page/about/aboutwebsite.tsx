@@ -1,4 +1,4 @@
-import MarkDown from "../../util/Markdown/Markdown";
+import MarkDown from "../../component/Markdown/Markdown";
 
 import content from "./aboutwebsite.md";
 import { useQuery } from "react-query";
