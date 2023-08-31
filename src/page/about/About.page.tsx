@@ -33,3 +33,8 @@ export default function About() {
     </div>
   );
 }
+
+
+// 前端 ： html css js - vue 
+// 后端 ： Java - springboot
+// 数据库 ： mysql, postgreSql

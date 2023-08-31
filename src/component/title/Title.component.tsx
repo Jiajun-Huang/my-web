@@ -7,7 +7,7 @@ interface Props {
 
 function Title({ children, ...otherProps }: Props) {
   return (
-    <h1 className="title" {...otherProps}>
+    <h1 className="Title" {...otherProps}>
       {children}
     </h1>
   );

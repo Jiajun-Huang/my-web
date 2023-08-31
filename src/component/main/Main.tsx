@@ -26,7 +26,7 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="articles" element={<Articles />}></Route>
-        <Route path="articles/:title" element={<SingleArticle />}></Route>
+        <Route path="articles/:key" element={<SingleArticle />}></Route>
         <Route path="log" element={<Log></Log>} />
         <Route path="*" element={<DoesNotExist />} />
         {/* <Route path="*" element={NotFound}/> */}

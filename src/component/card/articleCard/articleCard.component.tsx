@@ -10,6 +10,7 @@ interface Props {
   [x: string]: any;
 }
 /**
+ * used in home page
  * card
  *  title
  *  content
@@ -20,17 +21,19 @@ interface Props {
  */
 export default function ArticleCard({ article, ...otherProps }: Props) {
   return (
-    <div className="article-card" {...otherProps}>
+    <div className='article-card' {...otherProps}>
       <Card color={"main"} size={"small"} hover={true}>
-        <h3 className="card-title">{article.title}</h3>
-        <p className="card-text">{article.intro}</p>
-        <div className="card-badge">
-          <Badge color={"secondary"} hover={true}>
-            {article.createAt.toISOString().slice(0, 10)}
-          </Badge>
-          <div className="card-tags">
-            {article.tags.map((tag) => (
-              <Badge color={"secondary"} hover={true}>
+        <h3 className='card-title'>{article.title}</h3>
+        <p className='card-text'>{article.intro}</p>
+        <div className='card-badge'>
+          <div className='card-time'>
+            <Badge color={"secondary"} hover={true}>
+              <time>{article.createAt.toISOString().slice(0, 10)}</time>
+            </Badge>
+          </div>
+          <div className='card-tags'>
+            {article.tags.map((tag, i) => (
+              <Badge key={i} color={"secondary"} hover={true}>
                 {tag}
               </Badge>
             ))}

@@ -1,5 +1,4 @@
 .article-card {
-  margin-bottom: 1rem;
 
   .card-title {
     text-align: center;
@@ -7,6 +6,7 @@
     margin: 0.6rem 0rem;
   }
 
+  // only display 3 lines of text
   .card-text {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -20,7 +20,15 @@
     justify-content: space-between;
 
     .card-tags > .badge {
-      margin-left: 1rem;
+      margin-left: 0.7rem;
     }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    
+    
   }
 }

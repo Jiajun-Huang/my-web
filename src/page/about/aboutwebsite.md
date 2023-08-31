@@ -1,12 +1,17 @@
 ## About the website
 
-This website is build with **React** and **Firebase**.
+The technology stack of this website are
+- [React](https://react.dev/)
+- [React query](https://tanstack.com/query/v3/docs/react/overview)
+- [Ant design UI library](https://ant.design/docs/react/introduce/)
+- [React Markdown](https://github.com/remarkjs/react-markdown)
+- [Firebase](https://firebase.google.com/)
 
 This website is mainly used for posting my note and my experience
 
 The website is still under construction, more featured are waiting to be added.
 
-You can see the updating history at [this](https://github.com/Jiajun-Huang/my-web) github repo
+You can see the updating history at [here](https://github.com/Jiajun-Huang/my-web) github repo
 
 The TODO list for this website
 
@@ -14,10 +19,10 @@ The TODO list for this website
 - [x] Add content to About
 - [x] Finish home page
 - [x] Add first test article
-- [x] Add backend
-- [ ] improve caching
-- [ ] add first read article
-- [ ] Finish Update page
+- [x] Integrate with firebase
+- [x] Finish Update page
+- [ ] Add Meta data section for every article page (doing)
+- [ ] Add title anchor for every article page (doing)
 - [ ] Add footer
-- [ ] Finish Comments page
+- [ ] Finish Comments page and comments system
 - [ ] Finish Quote page

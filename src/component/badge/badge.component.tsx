@@ -2,7 +2,7 @@ import React from "react";
 import "./badge.style.scss";
 
 interface Props {
-  children: String;
+  children: String | JSX.Element;
   color: String;
   hover: Boolean;
 }

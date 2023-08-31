@@ -59,21 +59,23 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
 
 //firestore storage
 
-export function getImageUrl(title: string, src: string) {
-  const hashedTitle = title.replaceAll("-", " ");
+export function getImageUrl(key: string, src: string) {
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
-  }/o/${encodeURIComponent("articles/" + hashedTitle + "/" + src)}?alt=media`;
+  }/o/${"articles/" + key + "/" + src}?alt=media`;
   return url;
 }
 
-export const getMdFileText = async (title: string): Promise<string> => {
-  const hashedTitle = title;
+/**
+ * Get
+ * @param key key of the article to get
+ * @returns
+ */
+export const getMdFileText = async (key: string): Promise<string> => {
+  // get the url of the file
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
-  }/o/${encodeURIComponent(
-    "articles/" + hashedTitle + "/" + hashedTitle + ".md"
-  )}?alt=media`;
+  }/o/${"articles%2F" + key + "%2F" + key + ".md"}?alt=media`;
 
   const response = await fetch(url);
   if (response.status === 200) {
@@ -87,11 +89,22 @@ export const getMdFileText = async (title: string): Promise<string> => {
   }
 };
 
+/**
+ *
+ * @param key key of the article to get
+ * @returns
+ */
 export const getArticleDoc = async (key: string): Promise<Article> => {
-  const documentRef = doc(db, "articles", key); 
+  const documentRef = doc(db, "articles", key);
   const documentSnapshot = await getDoc(documentRef);
   if (documentSnapshot.exists()) {
-    return documentSnapshot.data() as Article;
+    const b: FArticle = documentSnapshot.data() as FArticle;
+    const article: Article = {
+      ...b,
+      createAt: b.createAt.toDate(),
+      lastUpdate: b.lastUpdate.toDate(),
+    };
+    return article;
   } else {
     throw new Error("404");
   }

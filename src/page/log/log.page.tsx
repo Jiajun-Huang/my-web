@@ -23,9 +23,14 @@ const Log = () => {
     },
     {
       date: 1690377679031,
+      logContent: ["I am planning to restart the development of this website"],
+    },
+
+    {
+      date: 1693437399976,
       logContent: [
-        "我现在打算从新开始开发这个网站",
-        "I am planning to restart the development of this website",
+        "Add switch in about page",
+        "Add loading animation in home page, and single article page",
       ],
     },
   ];
