@@ -76,12 +76,6 @@ export default function SingleArticle() {
     return <div>the file is missing or something else happened</div>;
   const count = mdData ? countWords(mdData) : 0;
 
-  // if (titleRef.current) {
-  //   titleRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  // }
-
-  // console.log(articleRef.current?.querySelectorAll(" h2, h3, h4, h5"));
-
   return (
     <article className='single-article'>
       <div className='title-container' id='title' ref={titleRef}>
@@ -159,9 +153,13 @@ export default function SingleArticle() {
         </div>
         <div className='article-catalog-container'>
           <aside className='article-catalog'>
-            <Card color='secondary' size="small">
-              <Catalog articleRef={articleRef} />
-            </Card>
+            {mdLoading ? (
+              <div></div>
+            ) : (
+              <Card color='secondary' size='small'>
+                <Catalog articleRef={articleRef} />
+              </Card>
+            )}
           </aside>
         </div>
       </div>

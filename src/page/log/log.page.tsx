@@ -37,6 +37,10 @@ const Log = () => {
       date: 1693510991751,
       logContent: ["Add meta data section in single article page"],
     },
+    {
+      date: 1693609816027,
+      logContent: ["Add catalog in single article page"],
+    },
   ];
 
   data.sort((a, b) => b.date - a.date);

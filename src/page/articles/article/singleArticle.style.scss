@@ -49,7 +49,6 @@
     position: relative;
     width: 0;
     left: 1.5rem;
-
   }
   .article-catalog {
     width: $asideWidth;
@@ -65,5 +64,11 @@
   }
 
   .article-body {
+  }
+
+  @media screen and (max-width: 90rem) {
+    .article-catalog-container {
+      display: none;
+    }
   }
 }

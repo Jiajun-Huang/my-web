@@ -21,7 +21,8 @@ The TODO list for this website
 - [x] Add first test article
 - [x] Integrate with firebase
 - [x] Finish Update page
-- [x] Add Meta data section for every article page (doing)
-- [ ] Add title anchor for every article page (doing)
+- [x] Add Meta data section for every article page
+- [x] Add heading anchor (catalog) for every article page 
+- [x]  
 - [ ] Add footer
 - [ ] Finish Comments page and comments system

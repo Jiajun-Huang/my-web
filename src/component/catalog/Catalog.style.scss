@@ -1,4 +1,8 @@
+@import "../../static/styles/base.scss";
+
 .Catalog {
+  // max-width: $asideWidth;
+  min-width: var($asideWidth - 200px);
   .catalog-title {
     font-size: 1rem;
     font-weight: 600;
@@ -16,8 +20,3 @@
   }
 }
 
-@media screen and (max-width: 100px) {
-  .Catalog {
-    display: none;
-  }
-}
