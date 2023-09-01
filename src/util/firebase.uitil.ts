@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 import FIREBASE_API from "../secret/firebaseAPI.json";
 import {
   getFirestore,
@@ -14,15 +14,14 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import { Article } from "../types/article";
-const getUuid = require("uuid-by-string");
 
 // Initialize Firebase
 const app = initializeApp(FIREBASE_API);
 
 // Initialize Realtime Database and get a reference to the service
 const db = getFirestore(app);
-const st = getStorage();
-const analytics = getAnalytics(app);
+getStorage();
+getAnalytics(app);
 
 interface FArticle {
   title: string;
@@ -59,7 +58,10 @@ export const queryArticlesProfile = async (): Promise<Article[]> => {
 
 //firestore storage
 
-export function getImageUrl(key: string, src: string) {
+export function getImageUrl(key: string | undefined, src: string | undefined) {
+  if (src === undefined || key === undefined) {
+    return "";
+  }
   const url = `https://firebasestorage.googleapis.com/v0/b/${
     FIREBASE_API.storageBucket
   }/o/${"articles/" + key + "/" + src}?alt=media`;

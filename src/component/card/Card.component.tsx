@@ -8,12 +8,12 @@ interface Props {
 }
 
 function Card({ children, size, color, hover = false, ...otherProps }: Props) {
+  console.log(color);
   return (
     <div
       className={`card ${hover ? "hover-card" : ""}  ${size ? size : ""} 
       ${color ? "main-color" : color + "-color"} }`}
-      {...otherProps}
-    >
+      {...otherProps}>
       {children}
     </div>
   );

@@ -11,13 +11,21 @@ import rehypeRaw from "rehype-raw";
 import "./markdown.style.scss";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 interface Props {
-  children: string;
+  children: string | undefined;
   transformImageUrl?: (url: string) => string;
 }
 
-const MarkDown = ({ children, transformImageUrl = (src) => src }: Props) => {
+const MarkDown = ({
+  children,
+  transformImageUrl = (src) => src,
+  ...otherProps
+}: Props) => {
+  if (!children) {
+    return <div className='Markdown'></div>;
+  }
+
   return (
-    <div className='markdown'>
+    <div className='Markdown' {...otherProps}>
       <ReactMarkdown
         remarkPlugins={[remarkMath, [remarkGfm, { singleTilde: false }]]}
         rehypePlugins={[rehypeKatex, rehypeRaw, rehypeSlug]}

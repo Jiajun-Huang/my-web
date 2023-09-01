@@ -33,6 +33,10 @@ const Log = () => {
         "Add loading animation in home page, and single article page",
       ],
     },
+    {
+      date: 1693510991751,
+      logContent: ["Add meta data section in single article page"],
+    },
   ];
 
   data.sort((a, b) => b.date - a.date);

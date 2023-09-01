@@ -21,7 +21,7 @@ export default function Home() {
   );
 
   const toArticle = (key: string) => {
-    navigate("/articles/" + encodeURIComponent(key).split("%20").join("-"));
+    navigate("/articles/" + key);
   };
 
   console.log(isLoading);

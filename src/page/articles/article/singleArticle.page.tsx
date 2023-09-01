@@ -11,10 +11,9 @@ import MarkDown from "../../../component/Markdown/Markdown";
 import DoesNotExist from "../../doesNotExist/DoesNotExist.page";
 import "./singleArticle.style.scss";
 import { useQueries } from "react-query";
-import { Article } from "../../../types/article";
 import { Skeleton } from "antd";
 import { countWords } from "alfaaz";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   CalendarOutlined,
   SyncOutlined,
@@ -24,6 +23,7 @@ import {
   TagOutlined,
   FileWordOutlined,
 } from "@ant-design/icons";
+import Catalog from "../../../component/catalog/Catalog.componment";
 
 export default function SingleArticle() {
   // get key from url params
@@ -31,7 +31,14 @@ export default function SingleArticle() {
   // key is used to find MD file such as storage/key/key.md
   // key is also the id for the article document in firebase
   const { key } = useParams<string>();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  const articleRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    if (titleRef.current) {
+      titleRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [titleRef]);
   // query for the articles md text
   const queries = useQueries([
     {
@@ -53,7 +60,7 @@ export default function SingleArticle() {
   const isDocError = docDataQuery.isError;
 
   if (isDocError) {
-    return <div>The article does not exist</div>;
+    return <DoesNotExist />;
   }
 
   if (isMdError) {
@@ -68,9 +75,16 @@ export default function SingleArticle() {
   if (isMdError)
     return <div>the file is missing or something else happened</div>;
   const count = mdData ? countWords(mdData) : 0;
+
+  // if (titleRef.current) {
+  //   titleRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  // }
+
+  // console.log(articleRef.current?.querySelectorAll(" h2, h3, h4, h5"));
+
   return (
     <article className='single-article'>
-      <div className='title-container'>
+      <div className='title-container' id='title' ref={titleRef}>
         <Title>{docLoading ? "Loading" : docData!.title}</Title>
 
         {/* display meta data, retrive from firebase data */}
@@ -78,7 +92,7 @@ export default function SingleArticle() {
           {/* date */}
           <div className='metadata-list'>
             <span>
-              <CalendarOutlined /> Created{" "}
+              <CalendarOutlined /> <span>Created </span>
               <time>
                 {docLoading
                   ? "____-__-__"
@@ -86,7 +100,7 @@ export default function SingleArticle() {
               </time>
             </span>
             <span>
-              <SyncOutlined /> Updated{" "}
+              <SyncOutlined /> <span>Updated </span>
               <time>
                 {docLoading
                   ? "____-__-__"
@@ -97,42 +111,60 @@ export default function SingleArticle() {
           {/* word counts, read time, views  */}
           <div className='metadata-list'>
             <span>
-              <FileWordOutlined /> Word Count {docLoading ? "___" : count}
+              <FileWordOutlined />{" "}
+              <span>Word Count {docLoading ? "___" : count}</span>
             </span>
             <span>
-              <ClockCircleOutlined /> Read Time{" "}
-              {docLoading ? "___" : Math.ceil(count / 200)} mins
+              <ClockCircleOutlined />{" "}
+              <span>
+                Read Time {docLoading ? "___" : Math.ceil(count / 200)} mins
+              </span>
             </span>
             <span>
-              <EyeOutlined /> Views {docLoading ? "___" : docData?.views}
+              <EyeOutlined />{" "}
+              <span>Views {docLoading ? "___" : docData?.views}</span>
             </span>
           </div>
           {/* cata, tags */}
           <div className='metadata-list'>
             <span>
-              <FolderOutlined /> Category: {docData?.category}
+              <FolderOutlined /> <span>Category: {docData?.category}</span>
             </span>
             <span>
-              <TagOutlined /> Tags: {docData?.tags.toString().replaceAll(",", ", ")}
+              <TagOutlined />{" "}
+              <span>
+                Tags: {docData?.tags.toString().replaceAll(",", ", ")}
+              </span>
             </span>
           </div>
         </div>
       </div>
 
-      {/*  */}
-
       {/* main body display */}
-      <Card color='main'>
-        {mdLoading ? (
-          <div>
-            <Skeleton active paragraph={{ rows: 8 }} />
-          </div>
-        ) : (
-          <MarkDown transformImageUrl={getImageUrl.bind(null, key as string)}>
-            {mdData as string}
-          </MarkDown>
-        )}
-      </Card>
+      <div className='main-container'>
+        <div className='article-body'>
+          <Card color='main'>
+            {mdLoading ? (
+              <div>
+                <Skeleton active paragraph={{ rows: 8 }} />
+              </div>
+            ) : (
+              <div ref={articleRef}>
+                <MarkDown transformImageUrl={getImageUrl.bind(null, key)}>
+                  {mdData}
+                </MarkDown>
+              </div>
+            )}
+          </Card>
+        </div>
+        <div className='article-catalog-container'>
+          <aside className='article-catalog'>
+            <Card color='secondary' size="small">
+              <Catalog articleRef={articleRef} />
+            </Card>
+          </aside>
+        </div>
+      </div>
     </article>
   );
 }

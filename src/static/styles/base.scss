@@ -1,8 +1,8 @@
 // size
 $navHeight: 60px;
 $footerHeight: 120px;
-$centerWidth: 1200px;
-$asideWidth: 260px;
+$centerWidth: 1050px;
+$asideWidth: 240px;
 $layoutWidth: 1000px;
 $topTitleHeight: 440px;
 $btnWidth: 70px;
@@ -26,8 +26,10 @@ $themeColor: var(--themeColor, rgb(12, 29, 27));
 $themeColor1: var(--themeColor1, rgb(22, 54, 51));
 // 副色2
 $themeColor2: var(--themeColor2, rgb(39, 95, 89));
-// 字体色
-$textColor: var(--textColor, rgb(255, 255, 255));
+// 主字体色
+$mainTextColor: var(--textColor, rgb(255, 255, 255, 1));
+// 正文字体色
+$textColor: var(--textColor, rgb(255, 255, 255, 0.9));
 // 切换开关灰色
 $switchOff: var(--switchOff, rgb(77, 77, 77));
 // placeholder
@@ -42,4 +44,3 @@ $codeBg: var(--codeBg, rgb(37, 43, 48));
 $textColor2: var(--textColor2, rgb(167, 167, 167));
 // 行内代码
 $inlineCode: var(--inlineCode, rgb(29, 71, 67));
-

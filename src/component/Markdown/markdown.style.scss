@@ -1,7 +1,7 @@
 @import "../../static/styles/base.scss";
 @import "../../static/styles/style.scss";
 
-.markdown {
+.Markdown {
   //word-break: break-all;
 
   h2,
@@ -10,7 +10,6 @@
   h5 {
     margin-top: 1rem;
     margin-bottom: 0.3rem;
-    color: $textColor;
     font-weight: bold;
   }
   h5 {
@@ -28,18 +27,18 @@
   h1 {
     font-size: 1.5rem;
   }
-  h2:before {
-    content: "✒️";
-  }
-  h3:before {
-    content: "✏️";
-  }
-  h4:before {
-    content: "📌";
-  }
-  h5:before {
-    content: "🏷️";
-  }
+  // h2:before {
+  //   content: "✒️";
+  // }
+  // h3:before {
+  //   content: "✏️";
+  // }
+  // h4:before {
+  //   content: "📌";
+  // }
+  // h5:before {
+  //   content: "🏷️";
+  // }
 
   strong {
     color: $hoverColor;
@@ -47,15 +46,16 @@
 
   p,
   a,
-  ul {
+  ul,
+  li {
     font-size: 1rem;
     line-height: 1.7rem !important;
-    color: inherit;
     margin: 0;
+    color: $textColor;
   }
 
   ul {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     margin-bottom: 0.5rem;
   }
 
@@ -66,7 +66,7 @@
     font-size: 0.9rem !important;
     font-weight: normal !important;
     border-radius: 8px;
-    margin: 0 2px;
+    margin: 0 0.1rem;
     span {
       font-family: "FiraCode";
     }
@@ -99,13 +99,13 @@
   table th,
   table td {
     padding: 6px 14px;
-    border: 1px solid rgb(120, 120, 120);
+    border: 0.05rem solid rgb(120, 120, 120);
   }
 
   a {
     font-weight: 700;
     text-decoration: underline !important;
-    margin: 0 4px;
+    margin: 0 0.2rem;
     color: $hoverColor;
     @extend .trans;
   }
@@ -121,10 +121,14 @@
     background-color: $codeBg;
     border-radius: $bigRadius !important;
     padding: 0;
-    font-size: 16px;
+    font-size: 0.8rem;
     font-family: "FiraCode", "dengxian" !important;
     line-height: 0.1rem !important;
   }
+
+  // input[type="checkbox"]:disabled {
+  //   @extend input[type="checkbox"];
+  // }
 }
 
 // @media screen and (max-width: 1240px) {
